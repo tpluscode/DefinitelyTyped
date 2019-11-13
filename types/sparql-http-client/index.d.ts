@@ -8,29 +8,29 @@ import { Term } from 'rdf-js';
 import { URL } from 'url';
 
 declare namespace SparqlHttp {
-  interface SparqlHttpOptions {
-      endpointUrl?: string;
-      updateUrl?: string;
-  }
+    interface SparqlHttpOptions {
+        endpointUrl?: string;
+        updateUrl?: string;
+    }
 
-  interface SparqlClientOptions extends SparqlHttpOptions {
+    interface SparqlClientOptions extends SparqlHttpOptions {
         fetch?: typeof fetch;
         URL?: typeof URL;
-  }
+    }
 
-  interface QueryRequestInit extends SparqlHttpOptions, RequestInit {}
+    interface QueryRequestInit extends SparqlHttpOptions, RequestInit { }
 
-  interface SelectBindings {
-      results: { bindings: ReadonlyArray<Record<string, Term>> };
-  }
+    interface SelectBindings {
+        results: { bindings: ReadonlyArray<Record<string, Term>> };
+    }
 
-  interface AskResult {
+    interface AskResult {
         boolean: boolean;
-  }
+    }
 
-  interface SelectResponse {
+    interface SelectResponse {
         json(): Promise<SelectBindings & AskResult>;
-  }
+    }
 }
 
 declare class SparqlHttp<TResponse extends Response = Response> {

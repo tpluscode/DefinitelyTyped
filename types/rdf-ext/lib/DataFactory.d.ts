@@ -1,5 +1,5 @@
 import { DataFactory, Sink, NamedNode, BaseQuad, Quad, Stream, Quad_Subject, Quad_Predicate, Quad_Object, Quad_Graph } from 'rdf-js';
-import BlankNodeExt = require("./BlankNode");
+import ext = require("..");
 import LiteralExt = require("./Literal");
 import NamedNodeExt = require("./NamedNode");
 import QuadExt = require("./Quad");
@@ -16,7 +16,7 @@ declare class DataFactoryExt implements DataFactory {
   static defaults: {
     defaultGraph: DefaultGraphExt;
     NamedNode: NamedNodeExt;
-    BlankNode: BlankNodeExt;
+    BlankNode: ext.BlankNode;
     Literal: LiteralExt;
     Variable: VariableExt;
     Quad: QuadExt;
@@ -25,7 +25,7 @@ declare class DataFactoryExt implements DataFactory {
   };
   static factory: typeof DataFactoryExt;
   static namedNode(value: string): NamedNodeExt;
-  static blankNode(value?: string): BlankNodeExt;
+  static blankNode(value?: string): ext.BlankNode;
   static literal(value: string, languageOrDatatype?: string | NamedNode): LiteralExt;
   static variable(value: string): VariableExt;
   static defaultGraph(): DefaultGraphExt;
@@ -35,7 +35,7 @@ declare class DataFactoryExt implements DataFactory {
   static prefixMap(prefixes: Prefixes): PrefixMap;
   static dataset(quads?: Quad[], graph?: PropType<QuadExt, 'graph'>): Dataset;
 
-  blankNode(value?: string): BlankNodeExt;
+  blankNode(value?: string): ext.BlankNode;
   defaultGraph(): DefaultGraphExt;
   literal(value: string, languageOrDatatype?: string | NamedNode): LiteralExt;
   namedNode(value: string): NamedNode;

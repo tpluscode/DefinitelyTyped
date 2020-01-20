@@ -1,16 +1,16 @@
 import {  Quad } from 'rdf-js';
+import ext = require('..')
 import { PropType } from './_PropType';
 import LiteralExt = require('./Literal');
-import BlankNodeExt = require('./BlankNode');
 import NamedNodeExt = require('./NamedNode');
 import VariableExt = require('./Variable');
 import DefaultGraphExt = require('./DefaultGraph');
 
 interface QuadExt extends Quad {
-  subject: NamedNodeExt | BlankNodeExt | VariableExt;
+  subject: NamedNodeExt | ext.BlankNode | VariableExt;
   predicate: NamedNodeExt | VariableExt;
-  object: NamedNodeExt | LiteralExt | BlankNodeExt | VariableExt;
-  graph: DefaultGraphExt | NamedNodeExt | BlankNodeExt | VariableExt;
+  object: NamedNodeExt | LiteralExt | ext.BlankNode | VariableExt;
+  graph: DefaultGraphExt | NamedNodeExt | ext.BlankNode | VariableExt;
   toCanonical(): string;
   toJSON(): {
     subject: ReturnType<PropType<PropType<QuadExt, 'subject'>, 'toJSON'>>;

@@ -5,6 +5,12 @@ import DataFactoryExt = require('rdf-ext/lib/DataFactory');
 import DatasetExt = require('rdf-ext/lib/Dataset');
 import { EventEmitter } from 'events';
 import { Readable } from 'stream';
+import BlankNodeExt = require('./lib/BlankNode');
+
+function constructors() {
+    const blankNode: rdf.BlankNode = new BlankNodeExt('b');
+    const dataset = new DatasetExt();
+}
 
 function NamedNode_toCanonical(): string {
     const iri = 'http://example.org';

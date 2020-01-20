@@ -1,12 +1,15 @@
-import { BlankNode, Term } from "rdf-js";
-import { PropType } from './_PropType';
+import { Term, BlankNode } from "rdf-js";
+import * as RdfExt from '..'
+import { PropType } from "./_PropType";
 
-interface BlankNodeExt extends BlankNode {
-  toCanonical(): string;
-  toJSON(): {
-    value: PropType<BlankNode, 'value'>;
-    termType: PropType<BlankNode, 'termType'>;
-  };
+declare interface BlankNodeExt extends RdfExt.BlankNode {
+  termType: PropType<BlankNode, 'termType'>;
+  value: PropType<BlankNode, 'value'>;
+  equals(other?: Term | null): boolean;
 }
 
-export = BlankNodeExt;
+interface BlankNodeExtConstructor {
+  new(id: string): BlankNodeExt;
+}
+
+export = BlankNodeExtConstructor;

@@ -4527,6 +4527,10 @@
             "libraryName": "rdf-js",
             "asOfVersion": "4.0.2"
         },
+        "rdf-validate-datatype": {
+            "libraryName": "rdf-validate-datatype",
+            "asOfVersion": "0.2.1"
+        },
         "rdflib": {
             "libraryName": "rdflib",
             "asOfVersion": "1.2.0"
